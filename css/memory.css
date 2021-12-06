@@ -1,0 +1,138 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.nav {
+    width: 1180px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid cornflowerblue;
+    overflow: hidden;
+}
+.nav .name {
+    float: left;
+    width: 50%;
+}
+.nav .info{
+    float: right;
+    width: 50%;
+    text-align: right;
+}
+.game {
+    width: 100%;
+    margin: 20px auto;
+    border: 1px solid cornflowerblue;
+  
+}
+.stop_clicking{
+    pointer-events: none;
+}
+.game .game-blocks  {
+height: 200px ;
+/*background-color: #333;*/
+transform-style: preserve-3d;
+position: relative;
+transition: transform 0.5s;
+margin-left: 64px;
+margin-top: 20px;
+margin-bottom: 10px;
+}
+.game .game-blocks .front{
+    background-color: #333;
+}
+.game .game-blocks .front::before{
+content: '!';
+color: #FFF;
+font-size: 140px;
+font-weight: bold;
+}
+.game .game-blocks .face{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border: 5px solid cornflowerblue;
+    backface-visibility: hidden;
+}
+.game .game-blocks .back{
+    background-color: #607D8B;
+  transform: rotateY(180deg);
+}
+.game .game-blocks .back img{
+    height: 140px;
+    width: 140px;
+    margin-top: 30px;
+}
+.is_fliped{
+    transform: rotateY(180deg);
+}
+.has_match{
+    transform: rotateY(180deg);
+}
+.control{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: rgba(3, 169, 244, 0.9);
+    transition: all 1s ease-in-out;
+    animation: animate 1s ease-in-out 1 normal   ;
+}
+@keyframes animate{
+    0%{
+        width: 0%;
+        height: 0%;
+    }
+    
+    100%{
+width: 100%;
+height: 100%;
+    }
+}
+.control button{
+    position: absolute;
+    transform: translate(-50% , -50%);
+    top: 50%;
+    left: 50%;
+}
+.end{
+ position: fixed;
+ width: 100%;
+ height: 100%;
+ background-color: red;
+ z-index: 3;   
+ opacity: 0.9;
+ display: none;
+ transition: all 1s ease-in-out;
+ animation: animate 1s ease-in-out 1 normal   ;
+}
+.end span {
+    position: absolute;
+    transform: translate(-50% , -50%);
+    top: 40%;
+    left: 50%;
+    color: white;
+    font-weight: bold;
+    font-size: larger;
+}
+.end .play{
+    position: absolute;
+    transform: translate(-50% , -50%);
+    top: 50%;
+    left: 50%;
+    color: white;
+    font-weight: bold;
+    font-size: larger;
+
+}
+.end .exit{
+    position: absolute;
+    transform: translate(-50% , -50%);
+    top: 60%;
+    left: 50%;
+    color: white;
+    font-weight: bold;
+    font-size: larger;
+
+}
